@@ -1,10 +1,12 @@
 import React from 'react';
 import {ComponentWithObjects, ComponentWithResources, CompoundsPage} from '../../../genui';
 import ChEMBLCard from "./chembl/ChEMBLCard";
+import PapyrusCard from "./papyrus/PapyrusCard";
 import GeneratedCard from "./generated/GeneratedCard";
 import SDFCard from "./sdf/SDFCard";
 import CSVCard from "./csv/CSVCard";
 import ChEMBLCardNew from './chembl/ChEMBLCardNew';
+import PapyrusCardNew from './papyrus/PapyrusCardNew';
 import GeneratedCardNew from './generated/GeneratedCardNew';
 import SDFCardNew from './sdf/SDFCardNew';
 import CSVCardNew from './csv/CSVCardNew';
@@ -21,6 +23,15 @@ class Compounds extends React.Component {
                 component: ChEMBLCardNew
             }],
             listComponent: ChEMBLCard,
+        },
+        PapyrusCompounds: {
+            name: 'Papyrus++ Sets',
+            url: new URL( 'papyrus/', this.props.apiUrls.compoundSetsRoot),
+            newComponents: [{
+                label: "New",
+                component: PapyrusCardNew
+            }],
+            listComponent: PapyrusCard,
         },
         GeneratedMolSet: {
             name: 'Generated Sets',
