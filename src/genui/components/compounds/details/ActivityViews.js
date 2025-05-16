@@ -9,6 +9,7 @@ export function ActivitiesTable(props) {
   const extraComponents = props.extraComponents ? props.extraComponents : [];
   const appendData = props.extraDataAppend;
   const appendComponents = props.extraComponentsAppend;
+  const hideUnits = props.hideUnits ?? false;
 
   return (
     <Table size="sm" hover responsive>
@@ -22,7 +23,7 @@ export function ActivitiesTable(props) {
         }
         <th>Type</th>
         <th>Value</th>
-        <th>Units</th>
+        {!hideUnits && <th>Units</th>}
         {
           appendComponents ? extraComponents.map(component => <th key={component.header}>{component.header}</th>) : null
         }
@@ -63,7 +64,7 @@ export function ActivitiesTable(props) {
               }
               <td>{activity.type.value}</td>
               <td>{activity.value.toFixed(2)}</td>
-              <td>{activity.units ? activity.units.value : '-'}</td>
+              {!hideUnits && <td>{activity.units ? activity.units.value : '-'}</td>}
               {
                 appendComponents ? drawExtraComponents() : null
               }

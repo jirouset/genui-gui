@@ -93,6 +93,7 @@ function PapyrusCard(props) {
           tabs={tabs}
           assayMap={assayMap}
           targetMap={targetMap}
+          hideUnits={true}
           addToAssayMap={(id, chemblID) => {
             if (!assayMap.hasOwnProperty(id)) {
               assayMap[id] = chemblID;
